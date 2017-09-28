@@ -7,7 +7,10 @@ import com.niit.OnlineBackend.model.Category;
 
 public interface CategoryDAO 
 {
-  List<Category> list();
+   default List<Category> list() {
+	// TODO Auto-generated method stub
+	return null;
+}
   
   boolean add(Category category);
   
