@@ -33,7 +33,7 @@ public void testAddCategory()
 	category.setImageURL("cat_106.png");
 	assertEquals("successfully added a category inside table",true,categoryDAO.add(category));
 }
-/*
+/*+-
 @Test 
 public void testGetCategory()
 {

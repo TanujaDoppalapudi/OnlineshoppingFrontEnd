@@ -1,5 +1,6 @@
    <style>
-.panel-footer {
+.panel-footer 
+{
 background-color: #000000;
   border-color: #337ab7;
   color: #FFFFFF;
@@ -86,3 +87,4 @@ background-color: #000000;
 
             
 </body>
+</footer>
