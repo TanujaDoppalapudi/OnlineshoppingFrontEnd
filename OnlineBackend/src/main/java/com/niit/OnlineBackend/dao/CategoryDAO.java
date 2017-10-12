@@ -7,18 +7,20 @@ import java.util.List;
 
 import com.niit.OnlineBackend.model.Category;
 
-public interface CategoryDAO 
-{
-   default List<Category> list() {
-	// TODO Auto-generated method stub
-	return null;
+public interface CategoryDAO {
+
+	
+	
+	Category get(int id);
+	List<Category> list();
+	boolean add(Category category);
+	boolean update(Category category);
+	boolean delete(Category category);
+	
+	
 }
-  
-  boolean add(Category category);
-  
-  Category get(int id);
-  
-  boolean update(Category category);
-  boolean delete(Category category);
-  
-}
+
+
+
+
+

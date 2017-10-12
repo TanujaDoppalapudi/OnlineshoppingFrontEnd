@@ -91,10 +91,13 @@
 				<%@include file="singleProduct.jsp"%>
 			</c:if>								
 
-	        <c:if test="${userClickShowProduct == true}">
-				<%@include file="login.jsp"%>
+			<!-- Load only when user clicks manage product -->
+			<c:if test="${userClickManageProduct == true}">
+				<%@include file="manageProduct.jsp"%>
 			</c:if>	
-	        
+
+<hr>
+
 		</div>
 
 

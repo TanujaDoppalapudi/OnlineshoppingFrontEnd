@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.OnlineBackend.dao.CategoryDAO;
@@ -17,8 +18,7 @@ import com.niit.OnlineShoppingFE.exception.ProductNotFoundException;
 @Controller
 public class PageController 
 {
-	
-private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
@@ -27,7 +27,7 @@ private static final Logger logger = LoggerFactory.getLogger(PageController.clas
 	private ProductDAO productDAO;
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
-	public ModelAndView index() {		
+	public ModelAndView index(@RequestParam(name="logout",required=false)String logout) {		
 		ModelAndView mv = new ModelAndView("page");		
 		mv.addObject("title","Home");
 		
@@ -36,6 +36,11 @@ private static final Logger logger = LoggerFactory.getLogger(PageController.clas
 		
 		//passing the list of categories
 		mv.addObject("categories", categoryDAO.list());
+		
+		
+		if(logout!=null) {
+			mv.addObject("message", "You have successfully logged out!");			
+		}
 		
 		mv.addObject("userClickHome",true);
 		return mv;				
@@ -101,7 +106,8 @@ private static final Logger logger = LoggerFactory.getLogger(PageController.clas
 	 * */
 	
 	@RequestMapping(value = "/show/{id}/product") 
-	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException 
+	{
 		
 		ModelAndView mv = new ModelAndView("page");
 		
@@ -125,5 +131,29 @@ private static final Logger logger = LoggerFactory.getLogger(PageController.clas
 	}
 	
 	
-}
+	@RequestMapping(value="/membership")
+	public ModelAndView register() {
+		ModelAndView mv= new ModelAndView("page");
+		
+		logger.info("Page Controller membership called!");
+		
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/login")
+	public ModelAndView login(@RequestParam(name="error", required = false)	String error,
+			@RequestParam(name="logout", required = false) String logout) {
+		ModelAndView mv= new ModelAndView("login");
+		mv.addObject("title", "Login");
+		if(error!=null) {
+			mv.addObject("message", "Username and Password is invalid!");
+		}
+		if(logout!=null) {
+			mv.addObject("logout", "You have logged out successfully!");
+		}
+		return mv;
+	}
 
+	}
+	

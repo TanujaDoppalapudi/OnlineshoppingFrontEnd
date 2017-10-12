@@ -11,20 +11,25 @@ import com.niit.OnlineBackend.model.Product;
 
 public class ProductTestCase 
 {
-	
-	private static AnnotationConfigApplicationContext context;
-	private static ProductDAO productDAO;
-	private Product product;
 
+	private static AnnotationConfigApplicationContext context;
+	
+	
+	private static ProductDAO productDAO;
+	
+	
+	private Product product;
+	
+	
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
-		context.scan("com.shoppingbackend");
+		context.scan("com.niit.OnlineBackend");
 		context.refresh();
 		productDAO = (ProductDAO)context.getBean("productDAO");
 	}
 	
-	@Test
+/*	@Test
 	public void testCRUDProduct() {
 		
 		// create operation
@@ -56,8 +61,8 @@ public class ProductTestCase
 				6,productDAO.list().size());		
 				
 	}
-			
-	/*
+		*/	
+	
 	@Test
 	public void testListActiveProducts() {
 		assertEquals("Something went wrong while fetching the list of products!",
@@ -79,7 +84,11 @@ public class ProductTestCase
 				3,productDAO.getLatestActiveProducts(3).size());
 		
 	} 
-	*/
-
+	
+	
+	
+		
 
 }
+
+

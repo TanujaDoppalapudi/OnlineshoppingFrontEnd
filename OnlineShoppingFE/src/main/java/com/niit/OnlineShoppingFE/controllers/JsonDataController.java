@@ -2,6 +2,7 @@ package com.niit.OnlineShoppingFE.controllers;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,11 +16,19 @@ import com.niit.OnlineBackend.model.Product;
 @RequestMapping("/json/data")
 
 public class JsonDataController 
-{
-	@Autowired
+{@Autowired
 	private ProductDAO productDAO;
 	
-@RequestMapping("/all/products")
+
+	@RequestMapping("/admin/all/products")
+	@ResponseBody
+	public List<Product> getAllProductsList() {		
+		return productDAO.list();
+				
+	}	
+	
+	
+	@RequestMapping("/all/products")
 	@ResponseBody
 	public List<Product> getAllProducts() {
 		
@@ -36,8 +45,20 @@ public class JsonDataController
 	}
 	
 	
+	@RequestMapping("/mv/products")
+	@ResponseBody
+	public List<Product> getMostViewedProducts() {		
+		return productDAO.getProductsByParam("views", 5);				
+	}
+		
+	@RequestMapping("/mp/products")
+	@ResponseBody
+	public List<Product> getMostPurchasedProducts() {		
+		return productDAO.getProductsByParam("purchases", 5);				
+	}
 	
 	
-
-
+	
+	
 }
+

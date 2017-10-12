@@ -37,8 +37,7 @@ $(function() {
 		break;
 	case 'Shopping Cart':
 		$('#userModel').addClass('active');
-		break;
-		
+		break;		
 	default:
 		if (menu == "Home")
 			break;
