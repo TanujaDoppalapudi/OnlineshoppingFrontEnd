@@ -52,6 +52,7 @@
     <![endif]-->
 
 </head>
+<hr>
 
 <body>
 	
@@ -96,7 +97,6 @@
 				<%@include file="manageProduct.jsp"%>
 			</c:if>	
 
-<hr>
 
 		</div>
 

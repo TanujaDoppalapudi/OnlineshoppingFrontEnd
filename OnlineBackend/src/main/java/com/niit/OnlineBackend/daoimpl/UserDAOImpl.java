@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import com.niit.OnlineBackend.dao.UserDAO;
+import com.niit.OnlineBackend.model.Address;
 import com.niit.OnlineBackend.model.User;
 
 
@@ -56,6 +57,30 @@ public class UserDAOImpl implements UserDAO {
 			System.out.println(ex.getMessage());
 			return null;
 		}
+	}
+
+	@Override
+	public boolean addUser(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addAddress(Address address) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Address getBillingAddress(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Address> listShippingAddresses(int userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/*
