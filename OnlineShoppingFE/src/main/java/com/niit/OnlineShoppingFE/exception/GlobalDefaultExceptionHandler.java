@@ -11,6 +11,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 public class GlobalDefaultExceptionHandler {
 
+	
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ModelAndView handlerNoHandlerFoundException() {
 		
@@ -64,4 +65,3 @@ public class GlobalDefaultExceptionHandler {
 			
 	
 }
-

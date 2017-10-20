@@ -1,5 +1,4 @@
 package com.niit.OnlineBackend.model;
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -76,4 +75,3 @@ public class Category implements Serializable {
 	
 	
 }
-

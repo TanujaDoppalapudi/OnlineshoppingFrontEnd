@@ -1,17 +1,15 @@
 package com.niit.OnlineBackend.daoimpl;
-
 import java.util.List;
-
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import com.niit.OnlineBackend.dao.UserDAO;
 import com.niit.OnlineBackend.model.Address;
 import com.niit.OnlineBackend.model.User;
+
 
 
 @Repository("userDAO")
@@ -48,42 +46,6 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	@Override
-	public User get(int id) {
-		try {			
-			return sessionFactory.getCurrentSession().get(User.class, id);			
-		}
-		catch(Exception ex) {
-			System.out.println(ex.getMessage());
-			return null;
-		}
-	}
-
-	@Override
-	public boolean addUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addAddress(Address address) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Address getBillingAddress(int userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Address> listShippingAddresses(int userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
 	@Override
 	public boolean addAddress(Address address) {
 		try {			
@@ -136,7 +98,16 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	
+	@Override
+	public User get(int id) {
+		try {			
+			return sessionFactory.getCurrentSession().get(User.class, id);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
 
 	@Override
 	public Address getAddress(int addressId) {
@@ -148,6 +119,6 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 	}
-*/
-}
 
+	
+}

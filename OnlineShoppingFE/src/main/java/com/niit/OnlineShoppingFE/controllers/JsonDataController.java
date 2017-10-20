@@ -1,7 +1,5 @@
 package com.niit.OnlineShoppingFE.controllers;
-
 import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +12,9 @@ import com.niit.OnlineBackend.model.Product;
 
 @Controller
 @RequestMapping("/json/data")
+public class JsonDataController {
 
-public class JsonDataController 
-{@Autowired
+	@Autowired
 	private ProductDAO productDAO;
 	
 
@@ -61,4 +59,3 @@ public class JsonDataController
 	
 	
 }
-

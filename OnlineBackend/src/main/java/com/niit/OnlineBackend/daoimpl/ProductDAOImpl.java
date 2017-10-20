@@ -1,17 +1,15 @@
 package com.niit.OnlineBackend.daoimpl;
-
-
 import java.util.List;
-
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import com.niit.OnlineBackend.dao.ProductDAO;
 import com.niit.OnlineBackend.model.Product;
+
+
 
 @Repository("productDAO")
 @Transactional
@@ -148,5 +146,5 @@ public class ProductDAOImpl implements ProductDAO {
 		
 	}
 
+	
 }
-

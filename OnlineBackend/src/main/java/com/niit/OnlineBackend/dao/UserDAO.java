@@ -1,5 +1,4 @@
 package com.niit.OnlineBackend.dao;
-
 import java.util.List;
 
 import com.niit.OnlineBackend.model.Address;
@@ -7,22 +6,19 @@ import com.niit.OnlineBackend.model.User;
 
 public interface UserDAO {
 
-	// add an user
-	boolean addUser(User user);
+	// user related operation
 	User getByEmail(String email);
-	
-	// add an address
-	boolean addAddress(Address address);
-	// alternative
-	 Address getBillingAddress(int userId);
-	 List<Address> listShippingAddresses(int userId);
-	boolean add(User user);
 	User get(int id);
+
+	boolean add(User user);
 	
-/*	
-	Address getBillingAddress(User user);
-	List<Address> listShippingAddresses(User user);
-*/
+	// adding and updating a new address
+	Address getAddress(int addressId);
+	boolean addAddress(Address address);
+	boolean updateAddress(Address address);
+	Address getBillingAddress(int userId);
+	List<Address> listShippingAddresses(int userId);
 	
 
+	
 }

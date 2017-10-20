@@ -1,11 +1,8 @@
 package com.niit.OnlineBackend.daoimpl;
-
 import java.util.List;
 
-
-import javax.persistence.Query;
-
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,8 +86,5 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 	}
 
+	
 }
-
-
-
-

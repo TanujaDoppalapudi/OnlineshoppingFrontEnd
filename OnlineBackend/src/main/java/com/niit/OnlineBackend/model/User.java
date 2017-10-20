@@ -1,5 +1,4 @@
 package com.niit.OnlineBackend.model;
-
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
@@ -12,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_detail")
@@ -108,7 +107,14 @@ public class User implements Serializable{
 				+ enabled + "]";
 	}
 	
-		
+	
+	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Cart cart;
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	
 }
-
-

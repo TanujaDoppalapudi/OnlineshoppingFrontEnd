@@ -5,13 +5,14 @@ import org.springframework.validation.Validator;
 
 import com.niit.OnlineBackend.model.Product;
 
-
 public class ProductValidator implements Validator {
 
+	@Override
 	public boolean supports(Class<?> clazz) {
 		return Product.class.equals(clazz);
 	}
 
+	@Override
 	public void validate(Object target, Errors errors) {
 		
 		Product product = (Product) target;

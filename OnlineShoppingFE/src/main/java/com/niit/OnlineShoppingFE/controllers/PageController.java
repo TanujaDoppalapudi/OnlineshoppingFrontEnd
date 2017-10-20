@@ -1,8 +1,17 @@
 package com.niit.OnlineShoppingFE.controllers;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +24,11 @@ import com.niit.OnlineBackend.model.Category;
 import com.niit.OnlineBackend.model.Product;
 import com.niit.OnlineShoppingFE.exception.ProductNotFoundException;
 
+
+
 @Controller
-public class PageController 
-{
+public class PageController {
+	
 	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 	
 	@Autowired
@@ -106,8 +117,7 @@ public class PageController
 	 * */
 	
 	@RequestMapping(value = "/show/{id}/product") 
-	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException 
-	{
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
 		
 		ModelAndView mv = new ModelAndView("page");
 		
@@ -154,6 +164,29 @@ public class PageController
 		}
 		return mv;
 	}
-
-	}
 	
+	@RequestMapping(value="/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		// Invalidates HTTP Session, then unbinds any objects bound to it.
+	    // Removes the authentication from securitycontext 		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	    }
+		
+		return "redirect:/login?logout";
+	}	
+	
+	
+	@RequestMapping(value="/access-denied")
+	public ModelAndView accessDenied() {
+		ModelAndView mv = new ModelAndView("error");		
+		mv.addObject("errorTitle", "Aha! Caught You.");		
+		mv.addObject("errorDescription", "You are not authorized to view this page!");		
+		mv.addObject("title", "403 Access Denied");		
+		return mv;
+	}	
+		
+	
+	
+}

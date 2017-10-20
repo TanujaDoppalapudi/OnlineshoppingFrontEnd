@@ -1,4 +1,4 @@
-
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 	<script>
 		window.userRole = '${userModel.role}';
 	</script>
@@ -28,11 +28,11 @@
                     <li id="listProducts">
                         <a href="${contextRoot}/show/all/products">View Products</a>
                     </li>
-					
+					<security:authorize access="hasAuthority('ADMIN')">
 	                    <li id="manageProduct">
 	                        <a href="${contextRoot}/manage/product">Manage Product</a>
 	                    </li>					
-		
+					</security:authorize>
                 </ul>
 			    
 			    <ul class="nav navbar-nav navbar-right">

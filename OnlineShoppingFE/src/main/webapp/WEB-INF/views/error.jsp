@@ -28,7 +28,7 @@
 <link href="${css}/myapp.css" rel="stylesheet">
 
 
-<title>Online Shopping - FlowException</title>
+<title>Online Shopping - ${title}</title>
 
 </head>
 
@@ -57,18 +57,12 @@
 						
 						<div class="jumbotron">
 						
-							<h1>Please contact your administrator!</h1>
+							<h1>${errorTitle}</h1>
 							<hr/>
 						
 							<blockquote style="word-wrap:break-word">
 								
-								${flowExecutionException}
-							
-							</blockquote>						
-
-							<blockquote style="word-wrap:break-word">
-								
-								${rootCauseException}
+								${errorDescription}
 							
 							</blockquote>						
 						

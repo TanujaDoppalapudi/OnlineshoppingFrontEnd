@@ -1,7 +1,6 @@
 package com.niit.OnlineShoppingFE.controllers;
-
 import java.util.List;
-import com.niit.OnlineShoppingFE.exception.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -25,7 +24,6 @@ import com.niit.OnlineBackend.model.Category;
 import com.niit.OnlineBackend.model.Product;
 import com.niit.OnlineShoppingFE.util.FileUtil;
 import com.niit.OnlineShoppingFE.validator.ProductValidator;
-
 
 
 @Controller
@@ -157,3 +155,4 @@ public class ManagementController {
 	
 }
 
+	
