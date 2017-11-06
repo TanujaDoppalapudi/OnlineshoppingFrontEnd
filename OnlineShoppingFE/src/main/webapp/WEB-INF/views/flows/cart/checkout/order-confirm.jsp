@@ -142,7 +142,10 @@
 			    								<td class="text-center">&#8377; ${orderItem.buyingPrice}</td>
 			    								<td class="text-center">${orderItem.productCount}</td>
 			    								<td class="text-right">&#8377; ${orderItem.total}</td>
+			    								
+			    								
 			    							</tr>
+			    							
 		    							</c:forEach>
 		    						</tbody>
 		    					</table>
@@ -151,6 +154,7 @@
 		    		</div>
 		    	</div>
 		    </div>
+		   <td class="text-right"><strong> Grand Totals</strong></td> <td class="text-right">&#8377; ${checkoutModel.checkoutTotal}</td>
 		    <div class="text-center">
 		    	<a href="${contextRoot}/show/all/products" class="btn btn-lg btn-warning">Continue Shopping</a>
 		    </div>
