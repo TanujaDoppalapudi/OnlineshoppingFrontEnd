@@ -63,7 +63,7 @@
                 	</div>
                 </div>
 
-                <div class="row is-table-row">
+                <div class="row is-table-row" >
                 	
                     <div class="col-sm-4" ng-repeat="product in pCtrl.mvProducts">                    	
                         <div class="thumbnail">
